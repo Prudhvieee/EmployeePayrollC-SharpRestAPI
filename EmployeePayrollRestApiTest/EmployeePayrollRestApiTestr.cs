@@ -99,5 +99,16 @@ namespace EmployeePayrollRestApiTest
             Assert.AreEqual("13500", dataResponse.salary);
             System.Console.WriteLine(restResponse.Content);
         }
+        [TestMethod]
+        public void GivenEmployeeId_OnDelete_ShouldReturnSuccessStatus()
+        {
+            //Arrange
+            RestRequest restRequest = new RestRequest("/employees/5", Method.DELETE);
+            //Act
+            IRestResponse restResponse = restClient.Execute(restRequest);
+            //Assert
+            Assert.AreEqual(restResponse.StatusCode, HttpStatusCode.OK);
+            System.Console.WriteLine(restResponse.Content);
+        }
     }
 }
