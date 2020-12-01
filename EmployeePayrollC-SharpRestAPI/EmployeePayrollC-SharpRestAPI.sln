@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeePayrollC-SharpRestAPI", "EmployeePayrollC-SharpRestAPI.csproj", "{8297407A-0CFB-4A37-A335-002DDCA2158A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeePayrollRestApiTest", "..\EmployeePayrollRestApiTest\EmployeePayrollRestApiTest.csproj", "{2160D792-2971-4EC0-9B0A-D458F162D5C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8297407A-0CFB-4A37-A335-002DDCA2158A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8297407A-0CFB-4A37-A335-002DDCA2158A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8297407A-0CFB-4A37-A335-002DDCA2158A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8297407A-0CFB-4A37-A335-002DDCA2158A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2160D792-2971-4EC0-9B0A-D458F162D5C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2160D792-2971-4EC0-9B0A-D458F162D5C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2160D792-2971-4EC0-9B0A-D458F162D5C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2160D792-2971-4EC0-9B0A-D458F162D5C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C785E38E-2BD1-4240-A8FB-26134E2A5C18}
+	EndGlobalSection
+EndGlobal
