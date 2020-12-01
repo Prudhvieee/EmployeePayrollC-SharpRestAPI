@@ -81,5 +81,23 @@ namespace EmployeePayrollRestApiTest
             List<EmployeeModel> dataResponse = JsonConvert.DeserializeObject<List<EmployeeModel>>(response.Content);
             Assert.AreEqual(7, dataResponse.Count);
         }
+        [TestMethod]
+        public void GivenEmployee_OnUpdate_ShouldReturnUpdatedEmployee()
+        {
+            //Arrange
+            RestRequest restRequest = new RestRequest("/employees/7", Method.PUT);
+            JObject jObject = new JObject();
+            jObject.Add("name", "Trump");
+            jObject.Add("salary", "13500");
+            restRequest.AddParameter("application/json", jObject, ParameterType.RequestBody);
+            //Act
+            IRestResponse restResponse = restClient.Execute(restRequest);
+            //Assert
+            Assert.AreEqual(restResponse.StatusCode, System.Net.HttpStatusCode.OK);
+            EmployeeModel dataResponse = JsonConvert.DeserializeObject<EmployeeModel>(restResponse.Content);
+            Assert.AreEqual("Trump", dataResponse.name);
+            Assert.AreEqual("13500", dataResponse.salary);
+            System.Console.WriteLine(restResponse.Content);
+        }
     }
 }
