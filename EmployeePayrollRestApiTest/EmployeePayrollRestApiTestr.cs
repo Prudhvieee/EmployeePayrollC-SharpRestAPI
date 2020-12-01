@@ -53,5 +53,33 @@ namespace EmployeePayrollRestApiTest
             Assert.AreEqual("joe", dataResponse.name);
             Assert.AreEqual("10000", dataResponse.salary);
         }
+        [TestMethod]
+        public void GivenMultipleData_OnPost_ShouldReturn_TotalCount()
+        {
+            List<EmployeeModel> employeeList = new List<EmployeeModel>();
+            employeeList.Add(new EmployeeModel { name = "Bieden", salary = "19000" });
+            employeeList.Add(new EmployeeModel { name = "Trump", salary = "11500" });
+            employeeList.ForEach(employeeData =>
+            {
+                RestRequest restRequest = new RestRequest("/employees", Method.POST);
+                /// Creating reference of json object
+                JObject jObject = new JObject();
+                /// Adding the data attribute with data elements
+                jObject.Add("name", employeeData.name);
+                jObject.Add("Salary", employeeData.salary);
+
+                restRequest.AddParameter("application/json", jObject, ParameterType.RequestBody);
+                //Act
+                IRestResponse restResponse = restClient.Execute(restRequest);
+                //Assert
+                Assert.AreEqual(restResponse.StatusCode, HttpStatusCode.Created);
+                EmployeeModel dataResponse = JsonConvert.DeserializeObject<EmployeeModel>(restResponse.Content);
+                Assert.AreEqual(employeeData.name, dataResponse.name);
+                Assert.AreEqual(employeeData.salary, dataResponse.salary);
+            });
+            IRestResponse response = GetEmployeeList();
+            List<EmployeeModel> dataResponse = JsonConvert.DeserializeObject<List<EmployeeModel>>(response.Content);
+            Assert.AreEqual(7, dataResponse.Count);
+        }
     }
 }
